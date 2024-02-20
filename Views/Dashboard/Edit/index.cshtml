@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="daashbard-edit-page">
+    <div class="container-xl px-4 mt-4">
+
+        <hr class="mt-0 mb-4">
+        <div class="row">
+            <div class="col-xl-8">
+                <!-- account details card-->
+                <div class="card mb-4">
+                    <div class="card-header">Account Edit Page</div>
+                    <div class="card-body">
+                        <form asp-controller="Account" asp-action="SaveChange" method="post">
+
+                            <!-- form row-->
+                            <div class="row gx-3 mb-3">
+                                <!-- form group (first name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputfirstname">first name</label>
+                                    <input class="form-control" id="inputfirstname" name="model.FirstName" type="text" placeholder="enter your first name" value="">
+                                </div>
+                                <!-- form group (last name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputlastname">last name</label>
+                                    <input class="form-control" id="inputlastname" name="model.LastName" type="text" placeholder="enter your last name" value="">
+                                </div>
+                            </div>
+                            <!-- form row        -->
+                            <div class="row gx-3 mb-3">
+                                <!-- form group (organization name)-->
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputphone">phone number</label>
+                                    <input class="form-control" id="inputphone" type="tel" name="model.UserPhone" placeholder="enter your phone number" value="">
+                                </div>
+                            </div>
+                            <!-- save changes button-->
+                            <button class="btn btn-primary" type="submit">save changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

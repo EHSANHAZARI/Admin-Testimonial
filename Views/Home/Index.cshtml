@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<ApplicantTestimonial>
+
+<div class="text-center">
+    @if (Model != null && Model.Any(t => t.IsApprove) && !User.Identity.IsAuthenticated)
+    {
+        <div>
+            <ul>
+                @foreach (var testimonial in Model.Where(t => t.IsApprove))
+                {
+                    <li>
+                        <img src="~/Applicant_Image/" />
+                        <strong>Title:</strong> @testimonial.Testimonial<br />
+                        <strong>Description:</strong> @testimonial.Description<br />
+                        <hr />
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <p>No approved testimonials available.</p>
+    }
+</div>

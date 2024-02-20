@@ -1,0 +1,25 @@
+﻿
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TS</title>
+    <link rel="stylesheet" href="~/css/header.css" />
+</head>
+
+<div class="headerClass">
+    <div class="header-left">
+        <button class="btn btn-primary" href="@Url.Action("Index", "Home")">Home</button>
+    </div>
+    <div class="header-right">
+
+        <form class="" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+
+            <a href="#" class="userEmail">
+                @User.Identity?.Name
+            </a>
+            <button class="btn btn-danger" type="submit" class="">Logout</button>
+        </form>
+    </div>
+
+
+</div>

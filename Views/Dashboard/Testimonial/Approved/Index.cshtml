@@ -1,0 +1,39 @@
+﻿@model List<ApplicantTestimonial>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approved Testimonials Page</title>
+    <link rel="stylesheet" href="~/css/admin.css" />
+</head>
+<body>
+    <h2>Approved Testimonials</h2>
+
+    @if (Model != null && Model.Any(t => t.IsApprove))
+    {
+        <div>
+            <ul>
+                @foreach (var testimonial in Model)
+                {
+                    @if (@testimonial.IsApprove)
+                    {
+                        <li>
+                            <strong>Title:</strong> @testimonial.Testimonial   1111<br />
+                            <strong>Description:</strong> @testimonial.Description<br />
+                            <strong>Approved:</strong> @testimonial.IsApprove.ToString()<br />
+                            <hr />
+                        </li>
+                    }
+
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <p>No approved testimonials available.</p>
+    }
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿@model List<ApplicantTestimonial>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Page</title>
+    <link rel="stylesheet" href="" />
+</head>
+<body>
+    <h2>Testimonials</h2>
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <div>
+            <ul>
+                @foreach (var testimonial in Model)
+                {
+                    <li>
+                        <strong>Title:</strong> @testimonial.Testimonial<br />
+                        <strong>Description:</strong> @testimonial.Description<br />
+                        <strong>Approved:</strong> @testimonial.IsApprove.ToString()<br />
+
+                        @if (!testimonial.IsApprove)
+                        {
+                            <form asp-action="ApproveTestimonial" asp-route-testimonial="@testimonial.Testimonial" method="post">
+                                <button class="approve" type="submit">Approve</button>
+                            </form>
+                        }
+
+                        <form asp-action="DeleteTestimonial" asp-route-id="@testimonial.Id" method="post">
+                            <button class="delete" type="submit">Delete</button>
+                        </form>
+                        <hr />
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <p>No testimonials available.</p>
+    }
+</body>
+</html>
